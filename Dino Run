@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>full screen button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #embedButton {
+            background-color: brown;
+            color: grey;
+            border: 2px solid ivory;
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s; /* Transition for growth effect */
+        }
+
+        #embedButton:hover {
+            transform: scale(1.05); /* Scale button on hover */
+        }
+    </style>
+</head>
+<body>
+    <button id="embedButton">Play in Fullscreen</button>
+
+    <script>
+        // Function to open a new tab with the iframe
+        function openEmbed() {
+            // Create a new window/tab
+            var newWindow = window.open('about:blank');
+
+            // Create an iframe element
+            var iframe = document.createElement('iframe');
+
+            // Set the source URL for the iframe
+            iframe.src = 'https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Fdino-run.xml';
+
+            // Set iframe attributes to cover the entire page
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+
+            // Append the iframe to the new window's document
+            newWindow.document.body.appendChild(iframe);
+
+            // Change the tab title
+            newWindow.document.title = 'Math!!!!';
+        }
+
+        // Add a click event listener to the button
+        document.getElementById('embedButton').addEventListener('click', openEmbed);
+    </script>
+</body>
+</html>
